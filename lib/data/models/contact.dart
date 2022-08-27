@@ -9,12 +9,6 @@ class Contact extends Equatable {
     this.reference,
     this.documentID,
   });
-  factory Contact.fromMap(Map<String, dynamic> map) {
-    return Contact(
-      name: map['name'] as String,
-      number: map['number'] as String,
-    );
-  }
 
   factory Contact.fromFirestore(DocumentSnapshot snapshot) {
     // ignore: cast_nullable_to_non_nullable
@@ -42,8 +36,14 @@ class Contact extends Equatable {
   Contact copyWith({
     String? name,
     String? number,
+    DocumentSnapshot? snapshot,
+    DocumentReference? reference,
+    String? documentID,
   }) {
     return Contact(
+      snapshot: snapshot ?? this.snapshot,
+      reference: reference ?? this.reference,
+      documentID: documentID ?? this.documentID,
       name: name ?? this.name,
       number: number ?? this.number,
     );

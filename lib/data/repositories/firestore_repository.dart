@@ -67,7 +67,6 @@ class FirestoreRepository {
         .doc(uid)
         .collection('contacts')
         .doc(contact.documentID);
-
     updateContactWriteBatch.update(
       contactReference,
       contact.toMap(),

@@ -12,11 +12,11 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final uid = context.select((AppBloc bloc) => bloc.state.user!.uid);
+    final uid = context.select((AppBloc bloc) => bloc.state.user?.uid);
     return BlocProvider<HomeCubit>(
       create: (context) => HomeCubit(
         context.read<FirestoreRepository>(),
-      )..openHome(uid: uid),
+      )..openHome(uid: uid!),
       child: const HomeView(),
     );
   }
@@ -31,6 +31,14 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Contacts'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              context.read<AppBloc>().add(AppLogoutRequested());
+            },
+            icon: const Icon(Icons.close),
+          )
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 12),
@@ -39,6 +47,14 @@ class HomeView extends StatelessWidget {
           itemCount: contacts.length,
           itemBuilder: (context, i) {
             return ListTile(
+              onTap: () {
+                Navigator.of(context).push(
+                  AddContactPage.route(
+                    contact: contacts[i],
+                    cubit: context.read<HomeCubit>(),
+                  ),
+                );
+              },
               leading: CircleAvatar(
                 child: Text(
                   contacts[i].name.substring(0, 1).toUpperCase(),

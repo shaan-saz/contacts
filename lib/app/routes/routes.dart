@@ -11,8 +11,6 @@ List<Page<void>> onGenerateAppViewPages(
     case AppStatus.authenticated:
       return [HomePage.page()];
     case AppStatus.unauthenticated:
-    // ignore: no_default_cases
-    default:
       return [LoginPage.page()];
   }
 }

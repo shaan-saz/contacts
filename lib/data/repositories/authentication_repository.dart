@@ -99,6 +99,7 @@ class AuthenticationRepository {
     } on FirebaseAuthException catch (e) {
       throw LogInWithGoogleFailure.fromCode(e.code);
     } catch (_) {
+      print(_);
       throw const LogInWithGoogleFailure();
     }
   }
