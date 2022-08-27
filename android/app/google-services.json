@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "146203294237",
+    "project_id": "contacts-test-12",
+    "storage_bucket": "contacts-test-12.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146203294237:android:f7400784ce2f1c17a564f4",
+        "android_client_info": {
+          "package_name": "com.example.verygoodcore.contacts"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "146203294237-nq8qgfl1s1a1bqguoda0mmcval2mqlug.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCElWjy1YvV3Y7hfz8mMktgI41XryVFcq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "146203294237-nq8qgfl1s1a1bqguoda0mmcval2mqlug.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
